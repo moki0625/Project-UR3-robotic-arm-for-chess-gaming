@@ -1,0 +1,52 @@
+## TEAM A CONFIG
+
+##team_A_arm:
+  hardware_control_loop:
+     loop_hz: &loop_hz 125
+
+  ur_hardware_interface:
+    joints: &team_A_robot_joints
+       - team_A_shoulder_pan_joint
+       - team_A_shoulder_lift_joint
+       - team_A_elbow_joint
+       - team_A_wrist_1_joint
+       - team_A_wrist_2_joint
+       - team_A_wrist_3_joint
+    joints: &team_A_robot_joints_with_gripper
+        - team_A_shoulder_pan_joint
+        - team_A_shoulder_lift_joint
+        - team_A_elbow_joint
+        - team_A_wrist_1_joint
+        - team_A_wrist_2_joint
+        - team_A_wrist_3_joint
+        - team_A_gripper_right_driver_joint
+
+  joint_state_controller:
+     type: joint_state_controller/JointStateController
+     publish_rate: 50
+
+  joint_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: *team_A_robot_joints
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+    stop_trajectory_duration: 0.5
+    state_publish_rate: 25
+    action_monitor_rate: 10
+
+  joint_trajectory_controller_with_gripper:
+      type: position_controllers/JointTrajectoryController
+      joints: *team_A_robot_joints_with_gripper
+
+  joint_velocity_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: *team_A_robot_joints
+
+  

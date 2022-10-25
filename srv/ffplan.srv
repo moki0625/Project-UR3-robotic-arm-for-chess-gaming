@@ -1,0 +1,6 @@
+chessmap init
+chessmap goal
+int16 killed
+---
+string[] plan
+bool response

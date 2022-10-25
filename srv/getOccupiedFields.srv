@@ -1,0 +1,3 @@
+bool mapping_request
+---
+string[] occFields

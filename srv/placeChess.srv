@@ -1,0 +1,4 @@
+float32 trajduration
+trajectory_msgs/JointTrajectoryPoint placeConfig
+trajectory_msgs/JointTrajectoryPoint placeupConfig
+---

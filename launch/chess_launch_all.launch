@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch file to load the robots and cameras in simulation and show in rviz-->
+    <include file="$(find chesslab_setup)/launch/new-dashboard.launch.xml">
+            <arg name="load_sim" value="true" />
+            <arg name="load_services" value="true" />
+            <arg name="joint_gui_controller" default="true" />
+            <arg name="paused" default="true" />
+            <arg name="show_rviz" value="true" />
+            <arg name="team_A_enabled" value="true" />
+            <arg name="camera_enabled" value="true" />
+            <arg name="load_action_clients" value="true" />
+            <arg name="load_aruco_detector" value="true" />
+    </include>
+
+		<node
+		pkg="team04_final_project"
+		type="sensing_module"
+		name="sensing_module"
+		output="screen"
+		/>
+
+    <node
+    pkg="team04_final_project"
+    type="planning_module"
+    name="planning_module"
+    output="screen"
+    />
+
+    <node
+		pkg="team04_final_project"
+		type="action_module"
+		name="action_module"
+		output="screen"
+		/>
+
+
+    <node
+		pkg="team04_final_project"
+		type="chess_manager"
+		name="chess_manager"
+		output="screen"
+		/>
+
+
+
+</launch>

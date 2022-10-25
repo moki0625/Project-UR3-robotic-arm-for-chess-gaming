@@ -1,0 +1,4 @@
+float32 trajduration
+trajectory_msgs/JointTrajectoryPoint pregraspConfig
+trajectory_msgs/JointTrajectoryPoint graspConfig
+---

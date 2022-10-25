@@ -1,0 +1,6 @@
+geometry_msgs/TransformStamped original_pose
+---
+geometry_msgs/TransformStamped transcoord
+geometry_msgs/TransformStamped coordinate
+
+
